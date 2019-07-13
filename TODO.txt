@@ -1,0 +1,75 @@
+TODOS:
+
+Layout:
+    NAVBAR
+        -- Menu bar must go down on click and display the engine configuration (which   story to play, user to login, upload a file, etc)
+        -- Help will display almost a "documentation" about the engine, how it functions and how to load and play a game.
+        -- In about I will show some links of this app's github repository and about the author and copyright.
+    GAME MENU
+        -- Add Settings, Game, Map and Status icons and links
+        -- Fix the I/O of the headers after the icons
+
+Engine Functionality:
+    ROUTER
+        -- Add a router so each link will return to a different url (Menu, Help, About)
+        -- Render different outputs (gathering all main area or just the output area) depending on which section are you (in game, on menu bar links)
+    USER
+        -- Add user login, the user must be able to save it's current data on his/her account (from account details and configured settings to whole game objects consisting on saves from different games)
+
+Parser:
+    -- The functions of the engine must not reside on the story. They are to be held in the engine, so the parser uses the context of the story to evaluate which functions of which elements to call. Example:
+
+        The story is: player has to grab the trash and put on the trashcan. The steps for this would involve:
+            1. Take the trash
+            2. Open the trash can
+            3. Throw the trash in a trash can
+
+        input:  take the trash || take trash
+        1st call function parser(input, gameObject) => { output, updatedGameObject }
+        output: You took the trash from the floor.
+        input: open trash can
+        2nd call function parser(input, gameObject) => { output, updatedGameObject }
+        output: You opened the trash can.
+        3rd call function parser(input, gameObject) => { output, updatedGameObject }
+        output: You properly threw the trash in the can. You are a hero! Congratulations!
+
+        After a user input there is a parser function that evaluates the action to be performed in what object. It will search for a list of verbs that recall to specicif functions (take, )
+
+        
+
+
+Game Object:
+
+{
+    data: {
+        
+    }
+
+    scenario: {
+
+    },
+
+    methods: {
+        
+    }
+}
+
+{
+    data: {
+        id: 2352643435,
+        name: "trash",
+        description: "It is a round, simple ball for playing games."
+        methods: {
+            "LOOK": () => "You look at the ball. It is a round, simple ball for playing games.",
+            "TAKE: () => 
+        }
+    },
+
+    state: {
+
+    },
+
+    children: {
+
+    }
+}
